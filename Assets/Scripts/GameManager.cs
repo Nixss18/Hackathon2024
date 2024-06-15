@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -18,5 +20,24 @@ public class GameManager : MonoBehaviour
         paddleCount = 0;
         if (instance == null) instance = this;
         else Destroy(gameObject);
+    }
+
+    public void BlackOut()
+    {
+        StartCoroutine(RestartRoutine());
+    }
+
+    IEnumerator RestartRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        RestartGame();
+
+    }
+
+    void RestartGame()
+    {
+        //set a black screen and then restart the scene
+        //SceneManager.GetActiveScene().name
+        SceneManager.LoadScene("MainMenu");
     }
 }

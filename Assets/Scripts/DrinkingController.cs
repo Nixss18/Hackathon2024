@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class DrinkingController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(GameManager.instance.drinkCount);
+        //launch event from here 
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,6 +18,7 @@ public class DrinkingController : MonoBehaviour
         {
 
             Debug.Log("Drank something");
+            GameManager.instance.drinkCount += 1;
         }
     }
 }
