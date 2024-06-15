@@ -22614,6 +22614,7 @@ GameObject:
   - component: {fileID: 1351007619}
   - component: {fileID: 1351007618}
   - component: {fileID: 1351007623}
+  - component: {fileID: 1351007624}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Mouth
@@ -22722,6 +22723,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationAction: {fileID: -5913262927076077117, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &1351007624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351007617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d08a05d0db84174d83b84ecf8a2ca6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1351376006
 GameObject:
   m_ObjectHideFlags: 0
