@@ -274,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 53945943}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23, y: 1.75, z: 3.3}
+  m_LocalPosition: {x: -3.34, y: 1.75, z: 3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1014,37 +1014,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747763641}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &804629879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 804629880}
-  m_Layer: 0
-  m_Name: ReferencePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &804629880
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804629879}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.75, y: 0.3, z: 3.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875768100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +1986,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551423936}
-  - component: {fileID: 1551423935}
   m_Layer: 0
   m_Name: boatparent
   m_TagString: Untagged
@@ -2025,19 +1993,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1551423935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551423934}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad22b8a8187ddc74db954c7e88d4d639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  referencePoint: {fileID: 804629880}
 --- !u!4 &1551423936
 Transform:
   m_ObjectHideFlags: 0
@@ -3131,7 +3086,7 @@ GameObject:
   - component: {fileID: 1824084686}
   - component: {fileID: 1824084685}
   m_Layer: 8
-  m_Name: CollisionCheckerRight (1)
+  m_Name: ShipLimitatorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3205,7 +3160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5aeaa702383732439c0be046755c3ac, type: 2}
+  - {fileID: 2100000, guid: 52d42cf0b1c52734b8187cf083d314f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3244,8 +3199,8 @@ Transform:
   m_GameObject: {fileID: 1824084684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.496, y: 0.43, z: 1.68}
-  m_LocalScale: {x: 5.0514975, y: 0.76135, z: 1.3648465}
+  m_LocalPosition: {x: 0.496, y: 0.64, z: 1.7078}
+  m_LocalScale: {x: 5.006842, y: 6.255607, z: 1.383845}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3399,7 +3354,7 @@ GameObject:
   - component: {fileID: 2057605324}
   - component: {fileID: 2057605323}
   m_Layer: 8
-  m_Name: CollisionCheckerLeft (1)
+  m_Name: ShipLimitatorsLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3473,7 +3428,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5aeaa702383732439c0be046755c3ac, type: 2}
+  - {fileID: 2100000, guid: 52d42cf0b1c52734b8187cf083d314f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3512,8 +3467,8 @@ Transform:
   m_GameObject: {fileID: 2057605322}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.496, y: 0.46, z: -2.3000002}
-  m_LocalScale: {x: 5.0514975, y: 0.76135, z: 1.3648465}
+  m_LocalPosition: {x: 0.496, y: 0.64, z: -2.3278}
+  m_LocalScale: {x: 5.006842, y: 6.255607, z: 1.383845}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6091,7 +6046,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6124099916195611164}
   - component: {fileID: 6896977788770097319}
-  - component: {fileID: 6896977788770097320}
   m_Layer: 3
   m_Name: boat
   m_TagString: Untagged
@@ -6107,7 +6061,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6896977788770097318}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0.01
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6126,19 +6080,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6896977788770097320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6896977788770097318}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad22b8a8187ddc74db954c7e88d4d639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  referencePoint: {fileID: 804629880}
 --- !u!23 &6952141674676211305
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6237,6 +6178,7 @@ GameObject:
   - component: {fileID: 9211249783169402817}
   - component: {fileID: 9211249783169402816}
   - component: {fileID: 9211249783169402819}
+  - component: {fileID: 9211249783169402820}
   m_Layer: 6
   m_Name: row
   m_TagString: Untagged
@@ -6492,8 +6434,8 @@ Transform:
   m_GameObject: {fileID: 7265452645603305066}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.51361305, y: 1.166, z: 0.15533185}
-  m_LocalScale: {x: 0.10828156, y: 0.3179363, z: 0.10828156}
+  m_LocalPosition: {x: -0.51361305, y: 0.873, z: -0.662}
+  m_LocalScale: {x: 0.10828156, y: 0.5201438, z: 0.10828156}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7008,7 +6950,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265452645603305066}
   serializedVersion: 4
-  m_Mass: 0.0001
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7062,6 +7004,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftcontroller: {fileID: 2111004334}
   CoastObjects: {fileID: 53945943}
+--- !u!114 &9211249783169402820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7265452645603305066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a64328c49ea5643878c5080a263d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &9212329255048893246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7142,6 +7096,5 @@ SceneRoots:
   - {fileID: 8043360779579899088}
   - {fileID: 53945947}
   - {fileID: 116614691}
-  - {fileID: 804629880}
   - {fileID: 2057605327}
   - {fileID: 1824084689}
