@@ -12472,6 +12472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03e597d979ddc14ba11beaa7ed9cd89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayTime: 10
+  audioSrc: {fileID: 0}
 --- !u!135 &787941012
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22072,7 +22074,6 @@ GameObject:
   - component: {fileID: 1351007620}
   - component: {fileID: 1351007619}
   - component: {fileID: 1351007618}
-  - component: {fileID: 1351007623}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Mouth
@@ -22168,19 +22169,6 @@ Transform:
   - {fileID: 1261516367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1351007623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351007617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d1d1fd128a10d0438bf0dd32cbd7bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationAction: {fileID: 0}
 --- !u!1 &1351376006
 GameObject:
   m_ObjectHideFlags: 0
@@ -24285,6 +24273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed27bc504ff2904c8486877ccf370d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackOut: {fileID: 0}
 --- !u!4 &1456552013
 Transform:
   m_ObjectHideFlags: 0
