@@ -6,6 +6,7 @@ public class DrinkingController : MonoBehaviour
 {
     // [SerializeField] private AudioSource soundSrc;
     [SerializeField] float delayTime = 10f;
+    [SerializeField] GameObject audioSrc;
     private bool didDrink = false;
     private float timer = 0.0f;
 
@@ -25,6 +26,12 @@ public class DrinkingController : MonoBehaviour
         if (timer <= delayTime)
         {
             timer += Time.deltaTime;
+        }
+
+        if (GameManager.instance.drinkCount == 3)
+        {
+            audioSrc.SetActive(true);
+            audioSrc.GetComponent<AudioSource>().Play();
         }
     }
 
