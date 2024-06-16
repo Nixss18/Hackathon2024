@@ -6,6 +6,8 @@ public class RespawnOnFall : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
 
+    public GameObject shipReference; 
+
     void Start()
     {
         // Store the initial position of the object
@@ -19,8 +21,8 @@ public class RespawnOnFall : MonoBehaviour
         if (transform.position.y <= -3f)
         {
             // Reset the object's position to the starting position
-            transform.position = startPosition;
-            transform.rotation = startRotation;
+            transform.position = shipReference.transform.position;
+            transform.rotation = shipReference.transform.rotation;
             
         }
     }
