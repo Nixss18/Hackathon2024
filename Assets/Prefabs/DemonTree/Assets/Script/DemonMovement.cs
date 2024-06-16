@@ -57,6 +57,10 @@ public class DemonMovement : MonoBehaviour
 
     void Update()
     {
+        if (this.gameObject.activeSelf)
+        {
+
+       
         // Проверка условий, при которых прекращается обновление
         if (isHit || ghostRenderer == null || ghostCollider == null) return;
 
@@ -67,49 +71,50 @@ public class DemonMovement : MonoBehaviour
         timer += Time.deltaTime;
 
         // Логика анимации
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-            {
-                anim.SetBool(hIdles, false);
-                anim.SetBool(hAngry, true);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-            {
-                anim.SetBool(hIdles, false);
-                anim.SetBool(hAttack, true);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-            {
-                anim.SetBool(hIdles, false);
-                anim.SetBool(hGrabs, true);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-            {
-                anim.SetBool(hIdles, false);
-                anim.SetBool(hThumbsUp, true);
-            }
-        }
-        else
-        {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-            {
-                anim.SetBool(hIdles, true);
-                anim.SetBool(hAngry, false);
-                anim.SetBool(hAttack, false);
-                anim.SetBool(hGrabs, false);
-                anim.SetBool(hThumbsUp, false);
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.W))
+        // {
+        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+        //     {
+        //         anim.SetBool(hIdles, false);
+        //         anim.SetBool(hAngry, true);
+        //     }
+        // }
+        // else if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+        //     {
+        //         anim.SetBool(hIdles, false);
+        //         anim.SetBool(hAttack, true);
+        //     }
+        // }
+        // else if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+        //     {
+        //         anim.SetBool(hIdles, false);
+        //         anim.SetBool(hGrabs, true);
+        //     }
+        // }
+        // else if (Input.GetKeyDown(KeyCode.D))
+        // {
+        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+        //     {
+        //         anim.SetBool(hIdles, false);
+        //         anim.SetBool(hThumbsUp, true);
+        //     }
+        // }
+        // else
+        // {
+        //     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+        //     {
+        //         anim.SetBool(hIdles, true);
+        //         anim.SetBool(hAngry, false);
+        //         anim.SetBool(hAttack, false);
+        //         anim.SetBool(hGrabs, false);
+        //         anim.SetBool(hThumbsUp, false);
+        //     }
+        // }
+         }
     }
 
     IEnumerator GhostAppearanceRoutine()

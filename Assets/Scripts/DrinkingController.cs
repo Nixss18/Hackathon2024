@@ -9,6 +9,7 @@ public class DrinkingController : MonoBehaviour
     [SerializeField] GameObject audioSrc;
 
     public GameObject DuckWithTressure;
+    public GameObject Demon;
     private bool didDrink = false;
     private float timer = 0.0f;
 
@@ -31,6 +32,12 @@ public class DrinkingController : MonoBehaviour
         }
 
         if (GameManager.instance.drinkCount == 3)
+        {
+            audioSrc.SetActive(true);
+            audioSrc.GetComponent<AudioSource>().Play();
+            Demon.SetActive(true);
+        }
+        if (GameManager.instance.drinkCount == 4)
         {
             audioSrc.SetActive(true);
             audioSrc.GetComponent<AudioSource>().Play();
