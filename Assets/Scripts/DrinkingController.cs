@@ -7,6 +7,8 @@ public class DrinkingController : MonoBehaviour
     // [SerializeField] private AudioSource soundSrc;
     [SerializeField] float delayTime = 10f;
     [SerializeField] GameObject audioSrc;
+
+    public GameObject DuckWithTressure;
     private bool didDrink = false;
     private float timer = 0.0f;
 
@@ -32,6 +34,7 @@ public class DrinkingController : MonoBehaviour
         {
             audioSrc.SetActive(true);
             audioSrc.GetComponent<AudioSource>().Play();
+            DuckWithTressure.SetActive(true);
         }
     }
 
