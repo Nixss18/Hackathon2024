@@ -26,6 +26,7 @@ public class DemonMovement : MonoBehaviour
     public AudioClip moveSound; // Звук начала движения
     public AudioClip hitSound; // Звук столкновения с предметом
 
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -57,102 +58,111 @@ public class DemonMovement : MonoBehaviour
 
     void Update()
     {
+
+
         if (this.gameObject.activeSelf)
         {
 
-       
-        // Проверка условий, при которых прекращается обновление
-        if (isHit || ghostRenderer == null || ghostCollider == null) return;
 
-        // Подлет привидения к игроку
-        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            // Проверка условий, при которых прекращается обновление
+            if (isHit || ghostRenderer == null || ghostCollider == null) return;
 
-        // Увеличение таймера
-        timer += Time.deltaTime;
+            // Подлет привидения к игроку
+            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-        // Логика анимации
-        // if (Input.GetKeyDown(KeyCode.W))
-        // {
-        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-        //     {
-        //         anim.SetBool(hIdles, false);
-        //         anim.SetBool(hAngry, true);
-        //     }
-        // }
-        // else if (Input.GetKeyDown(KeyCode.S))
-        // {
-        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-        //     {
-        //         anim.SetBool(hIdles, false);
-        //         anim.SetBool(hAttack, true);
-        //     }
-        // }
-        // else if (Input.GetKeyDown(KeyCode.A))
-        // {
-        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-        //     {
-        //         anim.SetBool(hIdles, false);
-        //         anim.SetBool(hGrabs, true);
-        //     }
-        // }
-        // else if (Input.GetKeyDown(KeyCode.D))
-        // {
-        //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-        //     {
-        //         anim.SetBool(hIdles, false);
-        //         anim.SetBool(hThumbsUp, true);
-        //     }
-        // }
-        // else
-        // {
-        //     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
-        //     {
-        //         anim.SetBool(hIdles, true);
-        //         anim.SetBool(hAngry, false);
-        //         anim.SetBool(hAttack, false);
-        //         anim.SetBool(hGrabs, false);
-        //         anim.SetBool(hThumbsUp, false);
-        //     }
-        // }
-         }
+            // Увеличение таймера
+            timer += Time.deltaTime;
+
+            // Логика анимации
+            // if (Input.GetKeyDown(KeyCode.W))
+            // {
+            //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+            //     {
+            //         anim.SetBool(hIdles, false);
+            //         anim.SetBool(hAngry, true);
+            //     }
+            // }
+            // else if (Input.GetKeyDown(KeyCode.S))
+            // {
+            //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+            //     {
+            //         anim.SetBool(hIdles, false);
+            //         anim.SetBool(hAttack, true);
+            //     }
+            // }
+            // else if (Input.GetKeyDown(KeyCode.A))
+            // {
+            //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+            //     {
+            //         anim.SetBool(hIdles, false);
+            //         anim.SetBool(hGrabs, true);
+            //     }
+            // }
+            // else if (Input.GetKeyDown(KeyCode.D))
+            // {
+            //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+            //     {
+            //         anim.SetBool(hIdles, false);
+            //         anim.SetBool(hThumbsUp, true);
+            //     }
+            // }
+            // else
+            // {
+            //     if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+            //     {
+            //         anim.SetBool(hIdles, true);
+            //         anim.SetBool(hAngry, false);
+            //         anim.SetBool(hAttack, false);
+            //         anim.SetBool(hGrabs, false);
+            //         anim.SetBool(hThumbsUp, false);
+            //     }
+            // }
+        }
     }
 
     IEnumerator GhostAppearanceRoutine()
     {
-        while (true)
+        // while (true)
+        // {
+        //     // Ожидание случайного времени перед появлением привидения (30 секунд - 1 минута)
+        //     // float waitTime = Random.Range(30f, 60f);
+        //     // yield return new WaitForSeconds(waitTime);
+
+        //     // Появление и начало подлета к игроку
+        //     // transform.position = originalPosition;
+        //     // ghostRenderer.enabled = true; // Делаем привидение видимым
+
+
+        // }
+        isHit = false;
+        timer = 0f;
+
+        // Воспроизведение звука начала движения
+        audioSource.PlayOneShot(moveSound);
+
+        // Пока привидение не исчезло
+        while (!isHit)
         {
-            // Ожидание случайного времени перед появлением привидения (30 секунд - 1 минута)
-            float waitTime = Random.Range(30f, 60f);
-            yield return new WaitForSeconds(waitTime);
+            // Если игрок достаточно близко для столкновения с привидением, останавливаем его движение
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer > 2f) // Расстояние 2 метра
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
+            else
+            {
+                isHit = true;
+                GameManager.instance.eventHappening = false;
+            }
 
-            // Появление и начало подлета к игроку
-            transform.position = originalPosition;
-            ghostRenderer.enabled = true; // Делаем привидение видимым
+            yield return null;
+        }
+
+        // Привидение исчезает, только если isHit становится true
+        if (isHit)
+        {
             isHit = false;
-            timer = 0f;
-
-            // Воспроизведение звука начала движения
-            audioSource.PlayOneShot(moveSound);
-
-            // Пока привидение не исчезло
-            while (!isHit)
-            {
-                // Если игрок достаточно близко для столкновения с привидением, останавливаем его движение
-                float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-                if (distanceToPlayer > 2f) // Расстояние 2 метра
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-                }
-
-                yield return null;
-            }
-
-            // Привидение исчезает, только если isHit становится true
-            if (isHit)
-            {
-                isHit = false;
-                Disappear();
-            }
+            Disappear();
         }
     }
 
@@ -176,5 +186,6 @@ public class DemonMovement : MonoBehaviour
             audioSource.PlayOneShot(hitSound);
             Disappear(); // Вызываем функцию исчезновения
         }
+
     }
 }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     //starts to spawn only when user jumps on the arena
     public bool gameStarted { get; set; }
+    public bool eventHappening { get; set; }
     public int drinkCount { get; set; }
     public int paddleCount { get; set; }
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         gameStarted = false;
         drinkCount = 0;
         paddleCount = 0;
+        eventHappening = false;
 
         if (instance == null) instance = this;
         else Destroy(gameObject);

@@ -4,14 +4,17 @@ public class MoveObject : MonoBehaviour
 {
     public GameObject StartPoint;
     public GameObject EndPoint;
-    private float speed = 1.0f; // Movement speed
+    public AudioSource src;
+    public float speed = 1.0f; // Movement speed
     private bool isMoving = false;
 
     void Start()
     {
         // Optional: Set the initial position of the GameObject to the start point
+
         transform.position = StartPoint.transform.position;
         isMoving = true; // Start moving immediately
+        src.PlayOneShot(src.clip);
     }
 
     void Update()
@@ -26,6 +29,8 @@ public class MoveObject : MonoBehaviour
             {
                 isMoving = false; // Stop moving
                 this.gameObject.SetActive(false);
+                GameManager.instance.eventHappening = false;
+
                 // Optional: Trigger any actions you want to perform when the object reaches the end point
             }
         }
